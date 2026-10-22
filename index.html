@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Error - 502 Bad Gateway</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: monospace;
+            background-color: #000000; /* Nền đen tuyền */
+            color: #555555;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .notice {
+            border: 1px dashed #333;
+            padding: 30px;
+            border-radius: 8px;
+            background: #0a0a0a;
+        }
+
+        h1 {
+            font-size: 18px;
+            color: #ff4b2b;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Giao diện màn hình lỗi hệ thống giả lập -->
+    <div class="notice">
+        <h1>ERR_CONNECTION_REFUSED_502</h1>
+        <p>Hệ thống tạm ngưng. Vui lòng mở bảng điều khiển <b>DevTools (F12)</b> để xác thực.</p>
+    </div>
+
+    <script>
+        // --- IN SẴN HƯỚNG DẪN VÀO CONSOLE THẬT CỦA CHROME TRÊN MÁY DELL ---
+        console.clear();
+        console.log("%c[SYSTEM KERNEL]: Phát hiện lỗi kết nối cổng mạng chính.", "color: #ff4b2b; font-size: 14px; font-weight: bold;");
+        console.log("%c[HƯỚNG DẪN]: Hãy nhập câu lệnh sau vào Console để khởi chạy tiến trình:", "color: #00ffcc; font-size: 13px;");
+        console.log("%c   python.install('huyentrang7a6')", "color: #ffff00; font-size: 14px; background: #111; padding: 4px; border-radius: 4px; font-weight: bold;");
+
+        // 1. Hàm nhận lệnh cài đặt
+        window.python = {
+            install: function(param) {
+                if(param === "huyentrang7a6") {
+                    console.clear();
+                    console.log("%c[SUCCESS] Cài đặt gói thành công!", "color: #00ffcc; font-size: 16px; font-weight: bold;");
+                    console.log("%c[MANH MỐI BÍ MẬT]: Mật mã mở khóa Trang 3 là:", "color: #ffff00; font-size: 14px;");
+                    console.log("%c   cong7a6_to_the_moon", "color: #ff4b2b; font-size: 16px; font-weight: bold; background: #222; padding: 5px;");
+                    console.log("%c[LỆNH CUỐI]: Hãy gõ tiếp lệnh mở khóa: unlock('cong7a6_to_the_moon')", "color: #00ffcc; font-size: 13px;");
+                    return "Dependencies loaded successfully.";
+                } else {
+                    console.log("%c[ERROR]: Tên gói (package) không chính xác!", "color: #ff4b2b; font-size: 14px;");
+                    return "Package not found.";
+                }
+            }
+        };
+
+        // 2. Hàm mở khóa lấy URL Trang 3
+        window.unlock = function(key) {
+            if (key === "cong7a6_to_the_moon") {
+                let targetURL = "trang3.html"; // Đường dẫn sang trang web thứ ba
+                console.clear();
+                console.log("%c🎉 GIẢI MÃ THÀNH CÔNG! ĐƯỜNG DẪN TRANG THỨ BA:", "color: #00ffcc; font-size: 16px; font-weight: bold;");
+                console.log("%c 👉 " + window.location.origin + "/" + targetURL + " 👈", "background: #222; color: #ff4b2b; font-size: 16px; padding: 8px; font-weight: bold; border-radius: 5px;");
+                alert("Giải mã thành công! Link trang 3 đã được in ra trong bảng Console.");
+                return "Access Granted: " + targetURL;
+            } else {
+                console.log("%c[ACCESS DENIED]: Sai mật mã!", "color: #ff4b2b; font-size: 14px;");
+                return "Denied";
+            }
+        };
+    </script>
+</body>
+</html>
