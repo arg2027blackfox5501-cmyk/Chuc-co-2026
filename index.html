@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[SECURE GATEWAY] - Hệ Thống Tri Ân 20/11</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            background-color: #0d1117;
+            color: #58a6ff;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .screen-one {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .terminal-box {
+            border: 1px solid #30363d;
+            padding: 30px;
+            border-radius: 8px;
+            background: #161b22;
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.08);
+            max-width: 500px;
+            width: 100%;
+        }
+        .terminal-box h3 { color: #f0883e; margin-top: 0; }
+        input {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            color: #c9d1d9;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 16px;
+            outline: none;
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        input:focus { border-color: #58a6ff; box-shadow: 0 0 8px rgba(88, 166, 255, 0.4); }
+        .scroll-hint {
+            color: #8b949e;
+            margin-top: 25px;
+            font-size: 13px;
+            animation: bounce 2s infinite;
+        }
+        .screen-two-hint {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #111418;
+            border-top: 2px dashed #30363d;
+            text-align: center;
+            padding: 20px;
+        }
+        .bypass-btn {
+            background: #238636;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-family: monospace;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.2s;
+            font-weight: bold;
+        }
+        .bypass-btn:hover { background: #2ea043; transform: scale(1.05); }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="screen-one">
+        <div class="terminal-box">
+            <h3>[!] SECURITY CHECKPOINT</h3>
+            <p>Hệ thống yêu cầu xác thực quyền truy cập dành riêng cho Người dùng đặc biệt.</p>
+            <p style="font-size: 13px; color: #8b949e;">Mẹo: Gõ phím <strong>'-'</strong>, nhấn <strong>F12</strong>, hoặc <strong>cuộn xuống dưới</strong>.</p>
+            <input type="text" id="cmdInput" autofocus placeholder="Nhập lệnh hoặc gõ '-' tại đây...">
+        </div>
+        <div class="scroll-hint">↓ Cuộn xuống nếu không thao tác bằng bàn phím</div>
+    </div>
+
+    <div class="screen-two-hint">
+        <h3 style="color: #58a6ff;">[?] HỆ THỐNG DỰ PHÒNG KÍCH HOẠT</h3>
+        <p>Dành riêng cho phiên bản di động hoặc thao tác chạm vuốt màn hình.</p>
+        <button class="bypass-btn" id="bypassBtn">[ CHUYỂN TIẾP SANG WEB 2 ]</button>
+    </div>
+
+    <script>
+        const inputField = document.getElementById('cmdInput');
+        const bypassBtn = document.getElementById('bypassBtn');
+
+        // 🔗 THAY LINK GITHUB PAGES CỦA WEB 2 VÀO ĐÂY:
+        const WEB_2_URL = "https://username.github.io/repo-web-2"; 
+
+        function redirectToWeb2() {
+            document.body.innerHTML = `
+                <div style="height: 100vh; display: flex; justify-content: center; align-items: center; background: #0d1117; color: #00ff00; font-family: monospace; text-align: center;">
+                    <h2>[ACCESS GRANTED] Đang chuyển hướng sang Web 2...</h2>
+                </div>
+            `;
+            setTimeout(() => { window.location.href = WEB_2_URL; }, 800);
+        }
+
+        inputField.addEventListener('keydown', function(event) {
+            if (event.key === '-' || event.key === 'F12' || inputField.value.includes('-')) {
+                event.preventDefault();
+                redirectToWeb2();
+            }
+        });
+
+        bypassBtn.addEventListener('click', function() {
+            redirectToWeb2();
+        });
+    </script>
+</body>
+</html>
